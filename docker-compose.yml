@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  melitest:
+    image: melitest
+    container_name: melitest
+    environment:
+      - REDIS_HOST=redis-10651.c10.us-east-1-4.ec2.cloud.redislabs.com
+      - REDIS_PORT=10651
+      - REDIS_PASS=5zuxMied8q6U2WnuSGett9bxeYO8JwhV
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 8080:8080

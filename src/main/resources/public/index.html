@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://momentjs.com/downloads/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+    <script src="https://unpkg.com/vue-router"></script>
+
+    <script src="https://unpkg.com/vue-ui-preloader"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-ui-preloader/dist/loader.css">
+
+		
+
+    <script src="./properties/properties.js"></script>
+
+    <link rel="stylesheet" href="./style/style.css">
+
+    <script src="./js/update/update.js"></script>
+    <link rel="stylesheet" href="./style/update.css">
+
+    <script src="./js/distance/distance.js"></script>
+    <link rel="stylesheet" href="./style/distance.css">
+
+    <script src="./js/ipquery/ipquery.js"></script>
+    <link rel="stylesheet" href="./style/ipquery.css">
+
+    
+
+	<title>
+		Test Mercadolibre
+	</title>
+</head>
+<body class="body_admin">
+
+
+	<div ref = "main" id="main" class="">
+
+    <update></update>
+    <distance></distance>
+    <ipquery></ipquery>
+
+	</div>
+
+  <div id="loading_modal" >
+
+    <loader object="#000000" color1="#ffffff" color2="#000000" size="5" speed="2" bg="#343a40" objectbg="#999793" opacity="80" name="circular" v-if="visible"></loader>
+
+
+  </div>
+
+</body> 	
+</html>
+
+<script type="text/javascript">
+
+  Vue.use(loader)
+
+	var vindex = new Vue({
+	  el: '#main',
+	  data () {
+	    return {
+	    }
+	  },
+    mounted(){
+      this.$root.$on("start_loading",function(){
+
+        loading_modal.visible = true;
+          
+      });
+
+      this.$root.$on("end_loading",function(){
+
+        loading_modal.visible = false;
+        
+      });
+    },
+	  methods:{
+	  }
+  });
+
+  var loading_modal = new Vue({
+
+    el: '#loading_modal',
+
+    components:{
+      loader:loader
+    },
+
+    data () {
+      return {
+              visible: false
+          }
+    },
+    methods:{
+      show_loading:function(){
+
+
+        this.visible = !this.visible
+
+      }
+    }
+  });
+
+
+
+</script>
