@@ -21,8 +21,9 @@ Vue.component('update',{
   
                 })
                 .catch(error => {
-                    console.log(error)
-                    alert("Error updating countries")
+                    console.log(error);
+                    this.$root.$emit("end_loading");
+                    alert("Error updating countries");
                 })
   
         }
