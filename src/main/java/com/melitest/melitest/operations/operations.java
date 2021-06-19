@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package operations;
+package com.melitest.melitest.operations;
 
 import static com.melitest.melitest.constant.constant.BuenosAiresLocation;
 import static com.melitest.melitest.constant.constant.earthRadiusKm;
